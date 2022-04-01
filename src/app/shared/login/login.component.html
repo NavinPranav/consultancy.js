@@ -1,0 +1,52 @@
+<div class="center">
+  <form [formGroup]="myForm" (ngSubmit)="login()">
+    <div class="login">
+      <mat-form-field
+        *ngIf="checkAdmin()"
+        appearance="outline"
+        class="h-5 w-80"
+      >
+        <mat-label>Email Id</mat-label>
+        <input
+          type="email"
+          matInput
+          formControlName="username"
+          placeholder="abc@example.com"
+        />
+        <mat-error class="text-xs" *ngIf="myForm.invalid"
+          >Enter a valid email id</mat-error
+        > </mat-form-field
+      ><br /><br /><br />
+
+      <mat-form-field
+        *ngIf="!checkAdmin()"
+        appearance="outline"
+        class="h-5 w-80"
+      >
+        <mat-label>Email Id</mat-label>
+        <input
+          type="email"
+          matInput
+          formControlName="email"
+          placeholder="abc@example.com"
+        />
+        <mat-error class="text-xs" *ngIf="myForm.invalid"
+          >Enter a valid email id</mat-error
+        > </mat-form-field
+      ><br /><br /><br />
+
+      <mat-form-field
+        *ngIf="checkAdmin()"
+        appearance="outline"
+        class="h-5 w-80"
+      >
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" type="password" />
+        <mat-error class="text-xs" *ngIf="myForm.invalid"
+          >Enter a valid password</mat-error
+        > </mat-form-field
+      ><br /><br /><br />
+      <button onclick="login()">submit</button>
+    </div>
+  </form>
+</div>

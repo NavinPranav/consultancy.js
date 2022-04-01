@@ -1,0 +1,111 @@
+<div class="">
+  <div class="text-center mt-7">
+    <h1>Candidate Form</h1>
+    <form [formGroup]="myForm">
+      <mat-form-field appearance="outline" class="w-96">
+        <mat-label>Name</mat-label>
+        <input type="text" matInput formControlName="name" />
+        <mat-error class="text-xs"
+          >Enter a valid name</mat-error
+        > </mat-form-field
+      ><br /><br /><br />
+
+      <mat-form-field appearance="outline" class="w-96">
+        <mat-label>Phone</mat-label>
+        <input type="text" matInput formControlName="phone" />
+        <mat-error class="text-xs"
+          >Enter a valid phone number</mat-error
+        > </mat-form-field
+      ><br /><br /><br />
+
+      <mat-form-field appearance="outline" class="w-96">
+        <mat-label>Email</mat-label>
+        <input type="text" matInput formControlName="email" />
+        <mat-error class="text-xs"
+          >Enter a valid email</mat-error
+        > </mat-form-field
+      ><br /><br /><br />
+
+      <mat-form-field appearance="outline" class="w-96">
+        <mat-label>Dob</mat-label>
+        <input type="text" matInput formControlName="dob" />
+        <mat-error class="text-xs">Enter DOB</mat-error> </mat-form-field
+      ><br /><br /><br />
+
+      <mat-form-field appearance="outline" class="w-96">
+        <mat-label>Gender</mat-label>
+        <mat-select formControlName="gender">
+          <mat-option value="Male">Male </mat-option>
+          <mat-option value="Female">Female </mat-option>
+          <mat-option value="Others">Others </mat-option>
+        </mat-select>
+        <mat-error class="text-xs">Select Gender</mat-error>
+      </mat-form-field>
+      <br /><br /><br />
+
+      <mat-form-field appearance="outline" class="w-96">
+        <mat-label>Experience</mat-label>
+        <input type="text" matInput formControlName="experience" />
+        <mat-error class="text-xs"
+          >Enter a valid experience</mat-error
+        > </mat-form-field
+      ><br /><br /><br />
+
+      <mat-form-field appearance="outline" class="w-96">
+        <mat-label>Skills</mat-label>
+        <input type="text" matInput formControlName="skills" />
+        <mat-error class="text-xs"
+          >Enter a valid skill</mat-error
+        > </mat-form-field
+      ><br /><br /><br />
+
+      <mat-form-field appearance="outline" class="w-96">
+        <mat-label>Education</mat-label>
+        <input type="text" matInput formControlName="education" />
+        <mat-error class="text-xs"
+          >Enter a valid education</mat-error
+        > </mat-form-field
+      ><br /><br /><br />
+
+      <mat-form-field appearance="outline" class="w-96">
+        <mat-label>Achievement</mat-label>
+        <input type="text" matInput formControlName="achievement" />
+        <mat-error class="text-xs"
+          >Enter a valid achievement</mat-error
+        > </mat-form-field
+      ><br /><br /><br /><br />
+      <mat-form-field appearance="outline" class="w-96">
+        <mat-label>Job Select</mat-label>
+        <mat-select formControlName="apply">
+          <div *ngFor="let jobId of jobs.data">
+            <mat-option
+              *ngIf="jobId.status == 'active'"
+              value="{{ jobId.jobName }}"
+            >
+              {{ jobId.jobName }}
+            </mat-option>
+          </div>
+        </mat-select>
+        <mat-error class="text-xs">Select a job</mat-error> </mat-form-field
+      ><br /><br /><br />
+
+      <mat-form-field appearance="outline" class="w-96">
+        <mat-label>Job Status</mat-label>
+        <mat-select formControlName="jobStatus">
+          <mat-option value="Calling">Calling </mat-option>
+          <mat-option value="Shortlist">Shortlist </mat-option>
+          <mat-option value="Interview">Interview </mat-option>
+          <mat-option value="Offer"> Offer</mat-option>
+          <mat-option value="Drop"> Drop</mat-option>
+        </mat-select>
+        <mat-error class="text-xs">Select status</mat-error> </mat-form-field
+      ><br /><br /><br />
+      <button
+        class="p-5 w-28 bg-green-400 rounded-full"
+        (click)="createCandidate()"
+      >
+        Save</button
+      ><br /><br /><br />
+    </form>
+  </div>
+</div>
