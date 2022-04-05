@@ -1,6 +1,6 @@
-<h1 class="justify-center text-center text-blue-700">List of Jobs</h1>
-
 <section class="justify-center ml-52 mr-10">
+<h1 class="text-center text-blue-700">List of Jobs</h1>
+
   <div class="table w-full p-2">
     <table class="w-full border">
       <thead>
@@ -14,11 +14,6 @@
             class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500"
           >
             <div class="flex items-center justify-center">Role</div>
-          </th>
-          <th
-            class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500"
-          >
-            <div class="flex items-center justify-center">Description</div>
           </th>
           <th
             class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500"
@@ -46,11 +41,14 @@
       <ng-container *ngFor="let job of jobs.data">
         <tbody>
           <tr
-            class="bg-gray-100 hover:bg-orange-100 text-center border-b text-sm text-gray-600"
+            class="bg-gray-100 hover:bg-orange-100 text-center border-b text-sm text-gray-600" 
+            attr.id="{{ job.id }}"
+            (click)="view(job)"
+            
           >
+          
             <td class="p-2 border-r">{{ job.jobName }}</td>
             <td class="p-2 border-r">{{ job.role }}</td>
-            <td class="p-2 border-r">{{ job.description }}</td>
             <td class="p-2 border-r">{{ job.skills }}</td>
             <td class="p-2 border-r">{{ job.experience }}</td>
             <td class="p-2 border-r">{{ job.status }}</td>
@@ -75,7 +73,9 @@
         </tbody>
       </ng-container>
     </table>
-    <button [routerLink]="['/job/create']">Create Job</button>
+    <div class="text-center mt-7">
+    <button class="bg-blue-700 rounded-full text-white h-10 w-36 hover:bg-blue-500 text-base" [routerLink]="['/job/create']">Create Job</button>
   </div>
+</div>
 </section>
 <router-outlet></router-outlet>

@@ -4,6 +4,7 @@ import { AdminJobListComponent } from './admin/admin-job-list/admin-job-list.com
 import { AdminModule } from './admin/admin.module';
 import { DeleteJobComponent } from './admin/delete-job/delete-job.component';
 import { EditJobComponent } from './admin/edit-job/edit-job.component';
+import { JobApplyComponent } from './admin/job-apply/job-apply.component';
 import { JobCreateComponent } from './admin/job-create/job-create.component';
 import { CandidateListComponent } from './candidate/candidate-list/candidate-list.component';
 import { CreateCandidateComponent } from './candidate/create-candidate/create-candidate.component';
@@ -33,6 +34,10 @@ const routes: Routes = [
         component: CandidateListComponent,
         children: [{ path: 'delete', component: DeleteCandidateComponent }],
       },
+      {
+        path: 'admin/apply',
+        component: JobApplyComponent
+      }
     ],
   },
   { path: 'job/edit', component: EditJobComponent },

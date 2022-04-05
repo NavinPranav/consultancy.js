@@ -36,7 +36,10 @@ id="modal-id"
         />
       </svg>
 
-      <h2 class="text-xl font-bold py-4"></h2>
+    <h2 class="text-xl font-bold py-4">
+  Are you sure you want to delete this candidate?
+
+    </h2>
       <p class="text-sm text-gray-500 px-8">
       </p>
     </div>
@@ -44,14 +47,14 @@ id="modal-id"
       <button
  
         class="mb-2 md:mb-0 bg-white px-5 py-2 text-sm shadow-sm font-medium tracking-wider border text-gray-600 rounded-full hover:shadow-lg hover:bg-gray-100"
-        [routerLink]="['/admin/candidate']" 
+        [routerLink]="['/home/admin/candidate']"
       >Cancel
       </button>
       <button
   
         class="mb-2 md:mb-0 bg-red-500 border border-red-500 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-full hover:shadow-lg hover:bg-red-600"
         (click)="deleteCandidate()"
-        [routerLink]="['/admin/candidate']" 
+        [routerLink]="['/home/admin/candidate']"  
        
       >Delete
       </button>

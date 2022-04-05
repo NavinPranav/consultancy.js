@@ -12,8 +12,6 @@ export class ProfileComponent implements OnInit {
   constructor(private apiservice: ApiService, private router: Router) {}
 
   ngOnInit(): void {
-    this.apiservice
-      .userLogin({ email: localStorage.getItem('candidEmail')! })
-      .subscribe((res) => (this.profile = res));
+    this.apiservice.getJobByEmail(localStorage.getItem('candidEmail')).subscribe(res => {console.log(res), this.profile = res})
   }
 }

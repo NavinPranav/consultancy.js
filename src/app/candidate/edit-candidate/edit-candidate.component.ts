@@ -28,10 +28,6 @@ export class EditCandidateComponent implements OnInit {
       skills: new FormControl(),
       education: new FormControl(),
       achievement: new FormControl(),
-      apply: new FormControl(),
-      jobStatus: new FormControl(),
-
-      status: new FormControl(),
 
     });
     this.findCandidate();
@@ -47,10 +43,7 @@ export class EditCandidateComponent implements OnInit {
         experience: new FormControl(this.candidate.data.experience, [Validators.required]),
         skills: new FormControl(this.candidate.data.skills, [Validators.required,Validators.minLength(3)]),
         education: new FormControl(this.candidate.data.education, [Validators.required, Validators.minLength(3)]),
-        achievement: new FormControl(this.candidate.data.achievement, [Validators.required, Validators.minLength(3)]),
-        apply: new FormControl(this.candidate.data.apply, [Validators.required]),
-        jobStatus: new FormControl(this.candidate.data.jobStatus, [Validators.required]),
-        status: new FormControl(this.candidate.data.status),
+        achievement: new FormControl(this.candidate.data.achievement, [Validators.required, Validators.minLength(3)])
   
       })
 
@@ -63,7 +56,7 @@ export class EditCandidateComponent implements OnInit {
 
   editCandidate(){
     if(this.myForm.valid){
-      this.apiservice.editCandidate(localStorage.getItem("userId")!, this.myForm.value).subscribe(res => {console.log(res), this.router.navigate(['admin/candidate'])})
+      this.apiservice.editCandidate(localStorage.getItem("userId")!, this.myForm.value).subscribe(res => {console.log(res), this.router.navigate(['home/admin/candidate'])})
     }
   }
 

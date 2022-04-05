@@ -27,7 +27,6 @@ export class EditJobComponent implements OnInit {
       description: new FormControl(),
       skills: new FormControl(),
       experience: new FormControl(),
-      // apply: new FormControl(),
     });
     this.findJob();
     setTimeout(() => {

@@ -1,49 +1,49 @@
-<img
-  class="h-10"
-  [routerLink]="['/home']"
-  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjCuupcMDWEs6_oUXskQvjPa_X1GlvTzEfgA&usqp=CAU.jpg"
-/>
-
+<div class="text-center mt-7">
+<h1 class="text-blue-700">
+  Create a job
+</h1>
 <form [formGroup]="myForm">
-  <mat-form-field appearance="outline" class="h-5 w-full">
+  <mat-form-field appearance="outline" class="w-96">
     <mat-label>Job Name</mat-label>
     <input type="text" matInput formControlName="jobName" />
     <mat-error class="text-xs"
       >Enter a valid Job name</mat-error
     > </mat-form-field
-  ><br /><br /><br />
+  ><br /><br />
 
-  <mat-form-field appearance="outline" class="h-5 w-full">
+  <mat-form-field appearance="outline" class="w-96">
     <mat-label>Role</mat-label>
     <input type="text" matInput formControlName="role" />
     <mat-error class="text-xs">Enter a role</mat-error> </mat-form-field
-  ><br /><br /><br />
+  ><br /><br />
 
-  <mat-form-field appearance="outline" class="h-5 w-full">
+  <mat-form-field appearance="outline" class="w-96">
     <mat-label>Description</mat-label>
     <input type="text" matInput formControlName="description" />
     <mat-error class="text-xs"
       >Description must be more than 10 letters</mat-error
     > </mat-form-field
-  ><br /><br /><br />
+  ><br /><br />
 
-  <mat-form-field appearance="outline" class="h-5 w-full">
+  <mat-form-field appearance="outline" class="w-96">
     <mat-label>Skills</mat-label>
     <input type="text" matInput formControlName="skills" />
     <mat-error class="text-xs">Enter proper skill</mat-error> </mat-form-field
-  ><br /><br /><br />
+  ><br /><br />
 
-  <mat-form-field appearance="outline" class="h-5 w-full">
+  <mat-form-field appearance="outline" class="w-96">
     <mat-label>Experience</mat-label>
     <input type="text" matInput formControlName="experience" />
     <mat-error class="text-xs"
       >Enter proper experience</mat-error
     > </mat-form-field
-  ><br /><br /><br />
+  ><br /><br />
   <button
-    class="bg-blue-500 p-2 text-white hover:shadow-lg text-xs mx-3 font-medium w-32 rounded-full hover:bg-blue-300"
+  class="text-gray-100 h-10 w-28 bg-green-600 rounded-full hover:bg-green-500"
+
     (click)="create()"
   >
     Save
   </button>
 </form>
+</div>

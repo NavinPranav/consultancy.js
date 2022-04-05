@@ -51,7 +51,7 @@
           >
             <div class="flex items-center justify-center">Achievement</div>
           </th>
-          <th
+          <!-- <th
           class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500"
         >
           <div class="flex items-center justify-center">Apply</div>
@@ -60,7 +60,7 @@
         class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500"
       >
         <div class="flex items-center justify-center">Job status</div>
-      </th>
+      </th> -->
           <th
             class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500"
           >
@@ -87,8 +87,8 @@
             <td class="p-2 border-r">{{ candidate.education }}</td>
             <td class="p-2 border-r">{{ candidate.skills }}</td>
             <td class="p-2 border-r">{{ candidate.achievement }}</td>
-            <td class="p-2 border-r">{{ candidate.apply }}</td>
-            <td class="p-2 border-r">{{ candidate.jobStatus }}</td>
+            <!-- <td class="p-2 border-r">{{ candidate.apply }}</td>
+            <td class="p-2 border-r">{{ candidate.jobStatus }}</td> -->
             <td class="p-2 border-r">{{ candidate.status }}</td>
 
             <td>
@@ -113,7 +113,9 @@
         </tbody>
       </ng-container>
     </table>
-    <button [routerLink]="['/candidate/create']" >create candidate</button>
+    <div class="text-center mt-7">
+    <button class="bg-blue-700 rounded-full text-white h-10 w-36 hover:bg-blue-500 text-base"   [routerLink]="['/candidate/create']" >create candidate</button>
+  </div>
   </div>
 </section>
 <router-outlet></router-outlet>

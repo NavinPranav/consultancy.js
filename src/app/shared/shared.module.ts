@@ -29,6 +29,6 @@ import {MatMenuModule} from '@angular/material/menu';
     MatFormFieldModule,
     AppRoutingModule,
     MatMenuModule
-  ],exports:[LoginComponent]
+  ],exports:[LoginComponent, JobDetailsComponent]
 })
 export class SharedModule { }

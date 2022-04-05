@@ -10,6 +10,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { EditJobComponent } from './edit-job/edit-job.component';
 import { DeleteJobComponent } from './delete-job/delete-job.component';
 import { JobCreateComponent } from './job-create/job-create.component';
+import { JobApplyComponent } from './job-apply/job-apply.component';
+import {MatSelectModule} from '@angular/material/select';
+import { EditAppliedJobComponent } from './edit-applied-job/edit-applied-job.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +20,8 @@ import { JobCreateComponent } from './job-create/job-create.component';
     EditJobComponent,
     DeleteJobComponent,
     JobCreateComponent,
+    JobApplyComponent,
+    EditAppliedJobComponent,
   ],
   imports: [
     CommonModule,
@@ -26,6 +31,7 @@ import { JobCreateComponent } from './job-create/job-create.component';
     MatSliderModule,
     MatInputModule,
     MatFormFieldModule,
+    MatSelectModule
   ],
 })
 export class AdminModule {}

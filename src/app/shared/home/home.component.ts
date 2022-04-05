@@ -24,4 +24,12 @@ export class HomeComponent implements OnInit {
   candidateList() {
     this.router.navigate(['admin/candidate'], { relativeTo: this.route });
   }
+
+  clear(){
+    localStorage.clear();
+  }
+
+  applyJob(){
+    this.router.navigate(['admin/apply'], { relativeTo: this.route })
+  }
 }

@@ -1,4 +1,7 @@
 <div class="text-center">
-   Job Applied: {{profile.data.apply | json}}<br>
-   Job Status: {{ profile.data.jobStatus | json}}<br>
+ 
+   <div *ngFor="let data of profile.data">
+     Job name: {{ data.jobId }}
+     Job Status {{ data.status }}
+   </div>
     <button [routerLink]="['/']"> back </button></div>

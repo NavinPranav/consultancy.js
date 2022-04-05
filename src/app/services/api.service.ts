@@ -2,71 +2,88 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ApiService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
+  //login
 
-   //login
+  public adminLogin(data: any): Observable<any> {
+    return this.http.post<any>('http://localhost:8080/login', data);
+  }
 
-    public adminLogin(data: any): Observable<any>{
-      return this.http.post<any>('http://localhost:8080/login', data);
-    }
+  public userLogin(data: any): Observable<any> {
+    return this.http.post<any>('http://localhost:8080/user/login', data);
+  }
 
-    public userLogin(data:any): Observable<any>{
-      return this.http.post<any> ('http://localhost:8080/user/login' , data)
-    }
+  //jobs
 
+  public getJobs(): Observable<any> {
+    return this.http.get<any>('http://localhost:8080/job/all');
+  }
 
+  public getJob(id: string): Observable<any> {
+    return this.http.get<any>('http://localhost:8080/job/' + id);
+  }
 
-    //jobs
+  public editJob(id: string, data: any): Observable<any> {
+    return this.http.put<any>('http://localhost:8080/job/edit/' + id, data);
+  }
 
-    public getJobs():Observable<any>{
-      return this.http.get<any>('http://localhost:8080/job/all');
-    }
+  public deleteJob(id: string): Observable<any> {
+    return this.http.delete<any>('http://localhost:8080/job/delete/' + id);
+  }
 
-    public getJob(id: string): Observable<any>{
-      return this.http.get<any>('http://localhost:8080/job/' + id);
-    }
+  public createJob(data: any): Observable<any> {
+    return this.http.post<any>('http://localhost:8080/job/create', data);
+  }
 
-    public editJob(id: string, data: any): Observable<any>{
-      return this.http.put<any>("http://localhost:8080/job/edit/" + id, data)
-    }
+  //candidates
 
-    public deleteJob(id: string): Observable<any>{
-      return this.http.delete<any>("http://localhost:8080/job/delete/" + id)
-    }
+  public getCandidates(): Observable<any> {
+    return this.http.get<any>('http://localhost:8080/user/all');
+  }
 
-    public createJob(data: any): Observable<any>{
-      return this.http.post<any>('http://localhost:8080/job/create', data)
-    }
+  public editCandidate(id: string, data: any): Observable<any> {
+    return this.http.put<any>('http://localhost:8080/user/edit/' + id, data);
+  }
 
+  public findCandidate(id: String): Observable<any> {
+    return this.http.get<any>('http://localhost:8080/user/' + id);
+  }
 
+  public deleteCandidate(id: string): Observable<any> {
+    return this.http.delete<any>('http://localhost:8080/user/delete/' + id);
+  }
 
+  public createCandidate(data: any): Observable<any> {
+    return this.http.post<any>('http://localhost:8080/user/create', data);
+  }
 
-    //candidates
+  //apply
 
-    public getCandidates(): Observable<any>{
-      return this.http.get<any>("http://localhost:8080/user/all");
-    }
+  public getCandidateJob(email: any): Observable<any> {
+    return this.http.get<any>('http://localhost:8080/user/email' + email);
+  }
 
-    public editCandidate(id: string, data: any): Observable<any>{
-      return this.http.put<any>("http://localhost:8080/user/edit/" + id, data);
-    }
+  public applyCandidateJob(data: any): Observable<any> {
+    return this.http.post<any>('http://localhost:8080/user/apply', data);
+  }
 
-    public findCandidate(id: String): Observable<any>{
-      return this.http.get<any>("http://localhost:8080/user/" + id);
-    }
+  public getJobByEmail(email: any): Observable<any> {
+    return this.http.get<any>('http://localhost:8080/user/email/' + email);
+  }
 
-    public deleteCandidate(id: string): Observable<any>{
-      return this.http.delete<any>('http://localhost:8080/user/delete/' + id);
-    }
+  public getAll(): Observable<any>{
+    return this.http.get<any>('http://localhost:8080/user/job/all')
+  }
 
-    public createCandidate(data: any): Observable<any>{
-      return this.http.post<any>('http://localhost:8080/user/create', data)
-    }
-
+  public getJobId(id:string): Observable<any>{
+    return this.http.get<any>('http://localhost:8080/user/job/'+id)
+  }
+  public editCandidJobId(data:any): Observable<any>{
+    return this.http.put<any>('http://localhost:8080/user/edit/job', data)
+  }
 }

@@ -1,90 +1,92 @@
-<img class="h-10" [routerLink]="['/home']" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjCuupcMDWEs6_oUXskQvjPa_X1GlvTzEfgA&usqp=CAU.jpg">
-
-<form [formGroup]="myForm">
-    <mat-form-field appearance="outline" class="h-5 w-full">
+<div class="text-center mt-7">
+  <h1 class="text-blue-700">Edit Candidate</h1>
+  <form [formGroup]="myForm">
+    <mat-form-field appearance="outline" class="w-96">
       <mat-label>Name</mat-label>
       <input type="text" matInput formControlName="name" />
-      <mat-error class="text-xs"
-        >Enter a valid name</mat-error
-      > </mat-form-field
+      <mat-error class="text-xs">Enter a valid name</mat-error> </mat-form-field
     ><br /><br /><br />
-  
-    <mat-form-field appearance="outline" class="h-5 w-full">
+
+    <mat-form-field appearance="outline" class="w-96">
       <mat-label>Phone</mat-label>
       <input type="text" matInput formControlName="phone" />
-      <mat-error class="text-xs">Enter a valid phone number</mat-error> </mat-form-field
+      <mat-error class="text-xs"
+        >Enter a valid phone number</mat-error
+      > </mat-form-field
     ><br /><br /><br />
-  
-    <mat-form-field appearance="outline" class="h-5 w-full">
+
+    <mat-form-field appearance="outline" class="w-96">
       <mat-label>Email</mat-label>
       <input type="text" matInput formControlName="email" />
       <mat-error class="text-xs"
         >Enter a valid email address</mat-error
       > </mat-form-field
     ><br /><br /><br />
-  
-    <mat-form-field appearance="outline" class="h-5 w-full">
+
+    <mat-form-field appearance="outline" class="w-96">
       <mat-label>DOB</mat-label>
       <input type="text" matInput formControlName="dob" />
       <mat-error class="text-xs">Enter DOB</mat-error> </mat-form-field
     ><br /><br /><br />
-  
-    <mat-form-field appearance="outline" class="h-5 w-full">
+
+    <mat-form-field appearance="outline" class="w-96">
       <mat-label>Gender</mat-label>
-      <input type="text" matInput formControlName="gender" />
-      <mat-error class="text-xs"
-        >Enter gender</mat-error
-      > </mat-form-field
-    ><br /><br /><br />
-  
-    <mat-form-field appearance="outline" class="h-5 w-full">
+      <mat-select formControlName="gender">
+        <mat-option value="Male">Male </mat-option>
+        <mat-option value="Female">Female </mat-option>
+        <mat-option value="Others">Others </mat-option>
+      </mat-select>
+      <mat-error class="text-xs">Select Gender</mat-error>
+    </mat-form-field>
+    <br /><br />
+
+    <mat-form-field appearance="outline" class="w-96">
       <mat-label>Experience</mat-label>
       <input type="text" matInput formControlName="experience" />
-      <mat-error class="text-xs">Enter proper details</mat-error> </mat-form-field
+      <mat-error class="text-xs"
+        >Enter proper details</mat-error
+      > </mat-form-field
     ><br /><br /><br />
 
-    <mat-form-field appearance="outline" class="h-5 w-full">
+    <mat-form-field appearance="outline" class="w-96">
       <mat-label>Skills</mat-label>
       <input type="text" matInput formControlName="skills" />
       <mat-error class="text-xs">Enter proper skill</mat-error> </mat-form-field
     ><br /><br /><br />
 
-    <mat-form-field appearance="outline" class="h-5 w-full">
+    <mat-form-field appearance="outline" class="w-96">
       <mat-label>Education</mat-label>
       <input type="text" matInput formControlName="education" />
-      <mat-error class="text-xs">Enter proper education</mat-error> </mat-form-field
+      <mat-error class="text-xs"
+        >Enter proper education</mat-error
+      > </mat-form-field
     ><br /><br /><br />
 
-    <mat-form-field appearance="outline" class="h-5 w-full">
+    <mat-form-field appearance="outline" class="w-96">
       <mat-label>Achievements</mat-label>
       <input type="text" matInput formControlName="achievement" />
-      <mat-error class="text-xs">Enter proper achievement</mat-error> </mat-form-field
-    ><br /><br /><br />
-
-    <mat-form-field appearance="outline" class="h-5 w-full">
-      <mat-label>Status</mat-label>
-      <input type="text" matInput formControlName="status" />
-      <mat-error class="text-xs">Enter proper status</mat-error> </mat-form-field
-    ><br /><br /><br />
-
-    <mat-form-field appearance="outline" class="w-96">
-      <mat-label>Job Select</mat-label>
-      <mat-select formControlName="apply">\
-        <div *ngFor="let jobId of jobs.data">
-
-        
-        <mat-option value={{jobId.jobName}} *ngIf="jobId.status == 'active'">
-          {{ jobId.jobName }}
-        </mat-option>
-      </div>
-      </mat-select>
       <mat-error class="text-xs"
-      >Select a job</mat-error
-    >
-      </mat-form-field
+        >Enter proper achievement</mat-error
+      > </mat-form-field
     ><br /><br /><br />
-  
-    <mat-form-field appearance="outline" class="w-96">
+
+    <!-- <mat-form-field appearance="outline" class="w-96">
+      <mat-label>Job Select</mat-label>
+      <mat-select formControlName="apply"
+        >\
+        <div *ngFor="let jobId of jobs.data">
+          <mat-option
+            value="{{ jobId.jobName }}"
+            *ngIf="jobId.status == 'active'"
+          >
+            {{ jobId.jobName }}
+          </mat-option>
+        </div>
+      </mat-select>
+      <mat-error class="text-xs">Select a job</mat-error> </mat-form-field
+    ><br /><br /> -->
+
+    <!-- <mat-form-field appearance="outline" class="w-96">
       <mat-label>Job Status</mat-label>
       <mat-select formControlName="jobStatus">
         <mat-option value="Calling">Calling </mat-option>
@@ -93,16 +95,14 @@
         <mat-option value="Offer"> Offer</mat-option>
         <mat-option value="Drop"> Drop</mat-option>
       </mat-select>
-      <mat-error class="text-xs"
-      >Select status</mat-error
-    >
-    </mat-form-field><br><br><br>
+      <mat-error class="text-xs">Select status</mat-error> </mat-form-field
+    ><br /><br /><br /> -->
 
     <button
-      class="bg-blue-500 p-2 text-white hover:shadow-lg text-xs mx-3 font-medium w-32 rounded-full hover:bg-blue-300"
+      class="text-gray-100 h-10 w-28 bg-green-600 rounded-full hover:bg-green-500"
       (click)="editCandidate()"
     >
       Save
     </button>
   </form>
-  
+</div>

@@ -1,0 +1,100 @@
+<section *ngIf="!jobApply()" class="justify-center ml-52 mr-5">
+  <div class="table w-full p-2">
+    <table class="w-full border">
+      <thead>
+        <tr class="bg-gray-50 border-b">
+          <th
+            class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500"
+          >
+            <div class="flex items-center justify-center">Candidate Name</div>
+          </th>
+          <th
+            class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500"
+          >
+            <div class="flex items-center justify-center">Job Name</div>
+          </th>
+          <th
+            class="p-2 border-r cursor-pointer text-sm font-thin text-gray-500"
+          >
+            <div class="flex items-center justify-center">Status</div>
+          </th>
+        </tr>
+      </thead>
+      <ng-container *ngFor="let detail of details.data">
+        <tbody>
+          <tr
+            class="bg-gray-100 hover:bg-orange-100 text-center border-b text-sm text-gray-600"
+            (click)="applyCandid(detail)"
+          > <td class="p-2 border-r">{{ detail.candidId }}</td>
+            <td class="p-2 border-r">{{ detail.jobId }}</td>
+            <td class="p-2 border-r">{{ detail.status }}</td>
+          </tr>
+        </tbody>
+      </ng-container>
+    </table>
+
+  </div>
+  <button
+class="text-gray-100 text-center h-10 w-28 bg-green-600 rounded-full hover:bg-green-500"
+(click)="apply()"
+>
+Apply
+</button>
+
+</section>
+
+
+<div class="text-center mt-7" *ngIf="jobApply()">
+  <h1 class="text-blue-700">Job Apply</h1>
+  <br />
+  <form [formGroup]="myForm">
+    <mat-form-field appearance="outline" class="w-96">
+      <mat-label>Select Candidate</mat-label>
+      <mat-select formControlName="candidId">
+        <div *ngFor="let candidate of candidates.data">
+          <mat-option
+            *ngIf="candidate.status == 'active'"
+            value="{{ candidate.email }}"
+          >
+            {{ candidate.email }}
+          </mat-option>
+        </div>
+      </mat-select>
+      <mat-error class="text-xs">Select a job</mat-error> </mat-form-field
+    ><br /><br />
+
+    <mat-form-field appearance="outline" class="w-96">
+      <mat-label>Select Job</mat-label>
+      <mat-select formControlName="jobId">
+        <div *ngFor="let jobId of jobs.data">
+          <mat-option
+            *ngIf="jobId.status == 'active'"
+            value="{{ jobId.jobName }}"
+          >
+            {{ jobId.jobName }}
+          </mat-option>
+        </div>
+      </mat-select>
+      <mat-error class="text-xs">Select a job</mat-error> </mat-form-field
+    ><br /><br />
+
+    <mat-form-field appearance="outline" class="w-96">
+      <mat-label>Job Status</mat-label>
+      <mat-select formControlName="status">
+        <mat-option value="Calling">Calling </mat-option>
+        <mat-option value="Shortlist">Shortlist </mat-option>
+        <mat-option value="Interview">Interview </mat-option>
+        <mat-option value="Offer"> Offer</mat-option>
+        <mat-option value="Drop"> Drop</mat-option>
+      </mat-select>
+      <mat-error class="text-xs">Select status</mat-error> </mat-form-field
+    ><br /><br />
+
+    <button
+      class="text-gray-100 h-10 w-28 bg-green-600 rounded-full hover:bg-green-500"
+      (click)="save(); clear()"
+    >
+      Apply
+    </button>
+  </form>
+</div>

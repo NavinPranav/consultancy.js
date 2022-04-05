@@ -3,6 +3,7 @@ import { ApiService } from '../../services/api.service'
 import { Router, ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { EditJobComponent } from '../edit-job/edit-job.component';
+import { JobDetailsComponent } from 'src/app/shared/job-details/job-details.component';
 
 
 
@@ -41,6 +42,13 @@ export class AdminJobListComponent implements OnInit {
 
   deleteConfirm(){
     this.router.navigate(['delete'], { relativeTo: this.route })
+  }
+
+  view(data: any) {
+    const dialogRef = this.dialog.open(JobDetailsComponent, {
+      width: '550px',
+      data: { viewData: data },
+    });
   }
 
 }
